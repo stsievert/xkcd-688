@@ -3,7 +3,7 @@
 
 ![xkcd comic](self_description.png)
 
-![animation](animation.gif)
+<img src="animation.gif" width="100%">
 
 
 XKCD has an interesting plot in [#688]. They do a several plots that include
