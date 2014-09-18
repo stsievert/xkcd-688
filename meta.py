@@ -61,6 +61,7 @@ def draw_figure():
     #draw_locations(comic)
     resized = imresize(comic, 0.25)
     resized /= resized.max()
+    resized[:, -1] = 1
     rn, rm = resized.shape
     base_x, base_y = (80, 530)
     comic[base_x:base_x+rn, base_y:base_y+rm] = resized
@@ -75,8 +76,6 @@ if __name__ == "__main__":
     comic = 1 - comic
     HEIGHT = comic.shape[0]
     n = comic.shape[0] * comic.shape[1]
-
-
 
     # for drawnow
     S = 12
@@ -93,7 +92,5 @@ if __name__ == "__main__":
         draw_figure()
         drawnow(update_image)
         sleep(1)
-
-
 
 
