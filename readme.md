@@ -48,7 +48,8 @@ This problem gets incredibly complex, especially if you consider any value of r
 and just 3.2. It turns out that for this particular function, there's a plot
 graphing the "stable" or settling points given a value of r.
 
-![settling points](https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png)
+<!--![settling points](https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png)-->
+<p><a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/LogisticMap_BifurcationDiagram.png/1200px-LogisticMap_BifurcationDiagram.png" alt="LogisticMap BifurcationDiagram.png"></a><br>"<a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png">LogisticMap BifurcationDiagram</a>" by <a href="//commons.wikimedia.org/wiki/User:PAR" title="User:PAR">PAR</a> - <span class="int-own-work">Own work</span>. Licensed under Public domain via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.</p>
 
 As you can see, for certain values of r, this is unstable. For other values of
 r, this algorithm is stable at different points. Of course, there's a whole
