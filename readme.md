@@ -49,7 +49,7 @@ This problem gets incredibly complex when you consider any
 `r` instead of just 3.7. For this particular and simple function, there's a
 graph of values of `r` and the final settling value:
 
-<p style="font-size:7pt"><a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/LogisticMap_BifurcationDiagram.png/1200px-LogisticMap_BifurcationDiagram.png" alt="LogisticMap BifurcationDiagram.png"></a>
+<p align="center"><a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/LogisticMap_BifurcationDiagram.png/1200px-LogisticMap_BifurcationDiagram.png" alt="LogisticMap BifurcationDiagram.png"></a>
 <br>
 <sup>
 <sup>
@@ -69,6 +69,13 @@ This is a classic example of the confusion that is found in almost all of
 mathematics. It's a simple concept (just a for-loop!) that has very deep theory
 behind it (when is it chaotic?).
 
+There are other implementations available (such as [this Mathematica] one or
+[this Python] one). The purpose of this implementation was not to cover the
+implementation details; I undertook this project to learn (and share!) some
+math.
+
+[this Mathematica]:http://blog.wolfram.com/2010/09/07/self-description/
+[this Python]:http://forthescience.org/blog/2010/01/14/image-self-consistency-from-xkcd/
 [infinite regression]:http://en.wikipedia.org/wiki/Infinite_regress
 [non-contractive map]:https://en.wikipedia.org/wiki/Contraction_mapping
 [fixed-point iteration]:https://en.wikipedia.org/wiki/Fixed-point_iteration
