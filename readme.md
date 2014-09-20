@@ -27,41 +27,47 @@ have made long and painful modifications to the code to change it.
 [Prof. Jarvis Haupt]:http://www.ece.umn.edu/~jdhaupt/
 
 This is abstract and non intuitive; you can't see it in the real world. To see
-it in the real world, let's pretend we have the equation
+it in the real world, let's instead pretend we have a similar equation:
 
 ![x = r*x*(1-x)](https://upload.wikimedia.org/math/a/3/3/a333fd3f242146b32e439812cf2b00fb.png)
 
 To implement this equation, we would only do
 
 ```python
-def f(x): return 3.2 * x * (1 - x)
+def f(x): return 3.7 * x * (1 - x)
 x = 0.5
 while True:
     x = f(x)
 ```
 
-Your intuition would might tell you this algorithm is stable. The first two
-values are 0.8 and 0.512; it seems to converge to 0.5 which *seems* to be a
-stable point.
+This for-loop doesn't appear to be unstable, but after you examine the first
+couple values, you can see it clearly is. The first five values of `x` are
+approximately `0.59, 0.89, 0.35, 0.84, 0.48` -- they don't seem to converge to
+any particular value.
 
-But that's not the case. For this value of `r = 3.2`, it oscillates between
-~0.799 and ~0.513. This problem gets incredibly complex when you consider any
-`r` instead of just 3.2. For this particular and simple function, there's a
+This problem gets incredibly complex when you consider any
+`r` instead of just 3.7. For this particular and simple function, there's a
 graph of values of `r` and the final settling value:
 
 <p style="font-size:7pt"><a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/LogisticMap_BifurcationDiagram.png/1200px-LogisticMap_BifurcationDiagram.png" alt="LogisticMap BifurcationDiagram.png"></a>
-<br>"<a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png">LogisticMap BifurcationDiagram</a>" by <a href="//commons.wikimedia.org/wiki/User:PAR" title="User:PAR">PAR</a> - <span class="int-own-work">Own work</span>. Licensed under Public domain via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.
+<br>
+<sup>
+<sup>
+"<a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png">LogisticMap BifurcationDiagram</a>" by <a href="//commons.wikimedia.org/wiki/User:PAR" title="User:PAR">PAR</a> - <span class="int-own-work">Own work</span>. Licensed under Public domain via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.
+</sup>
+</sup>
 </p>
 
-As you can see, for certain values of `r`, this is unstable. For other values of
-`r`, this algorithm is stable at different points. Of course, there's a whole
-field of study behind this. Stability and chaos experts study similar problems
-in great depth. I don't know the details to explain the full stability,
-especially the reason there are stable regions surrounded by unstable regions.
+As you can see, for certain values of `r`, this is unstable. For other values
+of `r`, this algorithm is stable. For some values of `r` (say `r=3.2`), this
+algorithm oscillates between two values. Of course, there's a whole field of
+study behind this. Stability and chaos experts study similar problems in great
+depth. I don't know the details to explain the full stability, especially the
+reason there are stable regions surrounded by unstable regions.
 
 This is a classic example of the confusion that is found in almost all of
-mathematics. It's a simple concept (just a for-loop!) but has complicated
-notation and has very deep theory behind it (when is it chaotic?).
+mathematics. It's a simple concept (just a for-loop!) that has very deep theory
+behind it (when is it chaotic?).
 
 [infinite regression]:http://en.wikipedia.org/wiki/Infinite_regress
 [non-contractive map]:https://en.wikipedia.org/wiki/Contraction_mapping
