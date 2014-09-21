@@ -1,9 +1,11 @@
-
 from __future__ import division
-from pylab import *
+from pylab import imread, ion, figure, set_cmap, imshow, axis, title
+from numpy import zeros, arange, argwhere
+import numpy as np
 from scipy.misc import imresize
-from drawnow import drawnow
 from time import sleep
+
+from drawnow import drawnow
 
 def sector_mask(shape=None, centre=(200, 300), percentage=0.25, radius=100):
     """
@@ -13,17 +15,16 @@ def sector_mask(shape=None, centre=(200, 300), percentage=0.25, radius=100):
     dc = 120
     angle_range = (dc, dc + percentage * 360)
 
-    x,y = np.ogrid[:shape[0],:shape[1]]
-    cx,cy = centre
-    tmin,tmax = np.deg2rad(angle_range)
+    x, y   = np.ogrid[:shape[0],:shape[1]]
+    cx, cy = centre
+    tmin, tmax = np.deg2rad(angle_range)
 
     # ensure stop angle > start angle
-    if tmax < tmin:
-            tmax += 2*np.pi
+    if tmax < tmin: tmax += 2*np.pi
 
     # convert cartesian --> polar coordinates
-    r2 = (x-cx)*(x-cx) + (y-cy)*(y-cy)
-    theta = np.arctan2(x-cx,y-cy) - tmin
+    r2 = pow(x-cx, 2) + pow(y-cy, 2)
+    theta = np.arctan2(x-cx, y-cy) - tmin
 
     # wrap angles between 0 and 2*pi
     theta %= (2*np.pi)
@@ -35,15 +36,18 @@ def sector_mask(shape=None, centre=(200, 300), percentage=0.25, radius=100):
     anglemask = theta <= (tmax-tmin)
 
     return circmask * anglemask
+
 def draw_circle(percentage, image, r=70, center=(90, 148)):
     mask = sector_mask(shape=image.shape, percentage=percentage, radius=r, centre=center)
     image[mask] = 1
     return image
+
 def draw_bars(panel_black, comic, height=400):
     base = 154
     for i in arange(3):
         bar_height = round(height * panel_black[i])
         comic[base-bar_height:base, 300+60*i:300+60*i+30] = 1
+
 def draw_figure():
     # updating first panel
     number_black = argwhere(comic > BLACK).shape[0]
@@ -58,10 +62,8 @@ def draw_figure():
     draw_bars(panel_black, comic)
 
     # updating the third panel
-    #draw_locations(comic)
     resized = imresize(comic, 0.25)
     resized /= resized.max()
-    resized[:, -1] = 1
     rn, rm = resized.shape
     base_x, base_y = (80, 530)
     comic[base_x:base_x+rn, base_y:base_y+rm] = resized
@@ -72,7 +74,6 @@ if __name__ == "__main__":
     BLACK = 0.2
 
     comic = imread('base.png')
-    #comic = 1 - np.round(comic)
     comic = 1 - comic
     HEIGHT = comic.shape[0]
     n = comic.shape[0] * comic.shape[1]
@@ -87,10 +88,7 @@ if __name__ == "__main__":
         axis('off')
         title('Iteration %d' % (i+1))
         
-
     for i in arange(7):
         draw_figure()
         drawnow(update_image)
         sleep(1)
-
-
