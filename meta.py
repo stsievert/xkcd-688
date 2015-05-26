@@ -73,7 +73,7 @@ if __name__ == "__main__":
     WIDTH = 246
     BLACK = 0.2
 
-    comic = imread('base.png')
+    comic = imread('input/base.png')
     comic = 1 - comic
     HEIGHT = comic.shape[0]
     n = comic.shape[0] * comic.shape[1]
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     figure(figsize=(S, S/3))
     def update_image():
         set_cmap('binary')
-        imshow(comic)#, interpolation='nearest')
+        imshow(comic)
         axis('off')
         title('Iteration %d' % (i+1))
         

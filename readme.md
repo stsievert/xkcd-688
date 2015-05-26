@@ -3,9 +3,9 @@
 [XKCD #688] is meta -- it includes information about itself. Why not try and
 recreate it?
 
-![xkcd comic](self_description.png)
+![xkcd comic](input/self_description.png)
 
-![animation](out.gif)
+![animation](output/out.gif)
 
 Of course, there are certain inaccuracies. I didn't try and make the bars the
 *exact* same width and the like. The last panel doesn't accurately portray the
@@ -29,7 +29,9 @@ have made long and painful modifications to the code to change it.
 This is abstract and non intuitive; you can't see it in the real world. To see
 it in the real world, let's instead pretend we have a similar equation:
 
-![x = r*x*(1-x)](https://upload.wikimedia.org/math/a/3/3/a333fd3f242146b32e439812cf2b00fb.png)
+<p align="center">
+<img src="wiki_example/equation.png" alt="x_{n+1} = r * x_n * (1 - x_n)" width="250px">
+</p>
 
 To implement this equation, we would only do
 
@@ -49,7 +51,7 @@ This problem gets incredibly complex when you consider any
 `r` instead of just 3.7. For this particular and simple function, there's a
 graph of values of `r` and the final settling value:
 
-<p align="center"><a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/LogisticMap_BifurcationDiagram.png/1200px-LogisticMap_BifurcationDiagram.png" alt="LogisticMap BifurcationDiagram.png"></a>
+<p align="center"><a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png#mediaviewer/File:LogisticMap_BifurcationDiagram.png"><img src="wiki_example/r_graph.png" alt="LogisticMap BifurcationDiagram.png"></a>
 <br>
 <sup>
 <sup>
@@ -57,6 +59,8 @@ graph of values of `r` and the final settling value:
 </sup>
 </sup>
 </p>
+
+[wiki_graph]:https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png
 
 As you can see, for certain values of `r`, this is unstable. For other values
 of `r`, this algorithm is stable. For some values of `r` (say `r=3.2`), this
